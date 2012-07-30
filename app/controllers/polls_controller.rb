@@ -7,6 +7,12 @@ class PollsController < ApplicationController
 	end
 
 	def create
+		@poll = Poll.new(params[:poll])
+		if @poll.save
+			redirect_to poll_path(@poll)
+		else
+			render 'new', :flash => {:error => "Your Poll could not be completed."}
+		end
 	end
 
 	def show

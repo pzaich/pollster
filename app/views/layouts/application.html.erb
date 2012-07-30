@@ -8,7 +8,7 @@
 </head>
 <body>
 <% flash.each do |key, message| %>
-  <%= content_tag :div, message, :class => "alert #{key}" %>
+  <%= content_tag :p, message, :class => "alert #{key}" %>
 <% end %>	
 
 <%= yield %>
