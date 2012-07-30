@@ -11,7 +11,7 @@ class PollsController < ApplicationController
 		if @poll.save
 			redirect_to poll_path(@poll)
 		else
-			render 'new', :flash => {:error => "Your Poll could not be completed."}
+			render 'new', :notice => "Your Poll could not be completed."
 		end
 	end
 
