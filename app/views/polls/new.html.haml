@@ -1,18 +1,2 @@
 %h1 Create a New Poll!
-
-
-
-
-=form_for(@poll) do |f|
-	- if @poll.errors.any?
-		%div.alert.alert-error
-			%h2 #{ pluralize(@poll.errors.count, "error")} prevented this poll from being saved!
-			%ul
-				- @poll.errors.full_messages.each do |msg|
-					%li #{msg}
-	%p
-		=f.label :name
-		=f.text_field :name
-	%p
-		=f.button "Create Poll", :class => "btn btn-success "
-
+= render "form", :btn_message => "Create Poll"
