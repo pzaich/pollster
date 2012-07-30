@@ -1,3 +1,8 @@
 %h1 Edit your Poll: #{@poll.name.upcase!}
+= link_to "Add question", new_poll_question_path(@poll), :class => "btn "
 
 = render "form", :btn_message => "Edit Poll"
+
+%ul
+	- @questions.each do |question|
+		%li #{question.title}

@@ -1,6 +1,11 @@
 Pollster::Application.routes.draw do
 
-  resources :polls
+  resources :polls do
+    resources :questions do
+      resources :responses do
+      end
+    end
+  end
 
   root to: 'polls#index'
   match "/:id" => redirect("/polls/%{id}/edit")

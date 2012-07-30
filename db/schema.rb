@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730215156) do
+ActiveRecord::Schema.define(:version => 20120730225900) do
 
   create_table "polls", :force => true do |t|
     t.string   "name",       :null => false
@@ -27,7 +27,10 @@ ActiveRecord::Schema.define(:version => 20120730215156) do
     t.string   "title",      :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "poll_id"
   end
+
+  add_index "questions", ["poll_id"], :name => "index_questions_on_poll_id"
 
   create_table "responses", :force => true do |t|
     t.string   "answer"

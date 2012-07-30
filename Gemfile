@@ -11,6 +11,7 @@ gem "friendly_id", "~> 4.0.0.beta8"
 group :development, :test do
 	gem 'sqlite3'
 	gem 'quiet_assets'
+	gem "haml-rails"
 end
 
 group :production do

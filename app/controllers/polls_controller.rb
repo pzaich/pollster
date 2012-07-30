@@ -9,7 +9,7 @@ class PollsController < ApplicationController
 	def create
 		@poll = Poll.new(params[:poll])
 		if @poll.save
-			redirect_to poll_path(@poll)
+			redirect_to poll_path(@poll), :flash => {:success => "Poll sucessfully created! Your unique edit link is #{root_url}#{@poll.edit_slug}"}
 		else
 			render 'new', :notice => "Your Poll could not be completed."
 		end
@@ -17,10 +17,12 @@ class PollsController < ApplicationController
 
 	def show
 		@poll = Poll.find(params[:id])
+		@questions = Question.where(:poll_id => @poll)
 	end
 
 	def edit
 		@poll = Poll.find_by_edit_slug(params[:id])
+		@questions =  Question.where(:poll_id => @poll)
 	end
 
 end

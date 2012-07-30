@@ -1,1 +1,7 @@
 %h1 #{@poll.name}
+
+%ul
+	- @questions.each do |question|
+		%li #{question.title}
+
+
