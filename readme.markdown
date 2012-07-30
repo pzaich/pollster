@@ -1,0 +1,1 @@
+Pollster is a simple, anonymous survey tool, where people can create and take polls without sigining up to be built solo in one day.
