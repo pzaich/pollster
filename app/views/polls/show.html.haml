@@ -1,13 +1,12 @@
 %h1 #{@poll.name}
 
-%ul
+%ol
 	- @questions.each do |question|
 		%li 
 			question.title
-			%ul.answers
-				- question.answers.each do |answer|
-					%li 
-						=answer.value
+			- question.answers.each do |answer|
+				= render '/responses/form', :locals => {:question => question, :answer => answer}
+					
 
 
 

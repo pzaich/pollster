@@ -1,10 +1,4 @@
 class QuestionsController < ApplicationController
-	def show
-  end
-
-  def edit
-  end
-
   def new
   	@poll = Poll.find(params[:poll_id])
   	@question = @poll.questions.new
@@ -27,7 +21,7 @@ class QuestionsController < ApplicationController
 
   def update
   	@question = Question.find(params[:id])
-		if @question.update_attributes(params[:poll])
+		if @question.update_attributes(params[:question])
 			redirect_to edit_poll_path(@question.poll.edit_slug), :flash => {:success => "Question Updated."}
 		else
 			render :back, :flash => {:error => "Update unsuccessful. Please try again."}
