@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120730225900) do
+ActiveRecord::Schema.define(:version => 20120731055846) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "value",       :null => false
+    t.integer  "question_id", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "polls", :force => true do |t|
     t.string   "name",       :null => false
@@ -33,12 +40,13 @@ ActiveRecord::Schema.define(:version => 20120730225900) do
   add_index "questions", ["poll_id"], :name => "index_questions_on_poll_id"
 
   create_table "responses", :force => true do |t|
-    t.string   "answer"
     t.integer  "question_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "answer_id"
   end
 
+  add_index "responses", ["answer_id"], :name => "index_responses_on_answer_id"
   add_index "responses", ["question_id"], :name => "index_responses_on_question_id"
 
 end
