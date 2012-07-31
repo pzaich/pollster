@@ -14,7 +14,7 @@ class Poll < ActiveRecord::Base
 	private
 
 	  def generate_edit_slug (salt = "dkjekdldc")
-	  	self.edit_slug = Digest::MD5.hexdigest(self.id.to_s + salt)
+	  	self.edit_slug = Digest::MD5.hexdigest(self.id.to_s + self.name + salt)
 	  end
 
 end
