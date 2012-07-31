@@ -6,12 +6,12 @@ class QuestionsController < ApplicationController
   end
 
   def new
-  	@poll = Poll.find_by_slug(params[:poll_id])
+  	@poll = Poll.find(params[:poll_id])
   	@question = @poll.questions.new
   end
 
   def create
-  	@poll = Poll.find_by_slug(params[:poll_id])
+  	@poll = Poll.find(params[:poll_id])
   	@question = @poll.questions.new(params[:question])
   	if @question.save
   		redirect_to edit_poll_path(@poll.edit_slug), :flash => {:success => "Your question has been saved successfully!"}

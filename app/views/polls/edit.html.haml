@@ -1,13 +1,13 @@
 %h1 Edit your Poll: #{@poll.name.upcase!}
-= link_to "Add question", new_poll_question_path(@poll), :class => "btn "
+%h3 Your Link: #{root_url}#{@poll.edit_slug}
+= link_to "Add question", new_poll_question_path(@poll), :class => "btn pull-right"
 
 = render "form", :btn_message => "Edit Poll"
 
-%ul
+%ul.questions
 	- @questions.each do |question|
 		%li 
 			%span #{question.title}
-			%span 
-				=link_to "Edit", "/polls/#{@poll.id}/questions/#{question.id}/edit", :class => "btn"
-
-/ Should be the correct routing => edit_poll_question(@poll , question)
+			%div.btn-group.pull-right
+				=link_to "Edit", edit_poll_question_path(@poll , question), :class => "btn"
+				=link_to "Delete", "#", :class => "btn btn-danger"

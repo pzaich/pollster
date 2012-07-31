@@ -26,7 +26,7 @@ class PollsController < ApplicationController
 	end
 
 	def update
-		@poll = Poll.find_by_slug(params[:id])
+		@poll = Poll.find(params[:id])
 		if @poll.update_attributes(params[:poll])
 			redirect_to :back, :flash => {:success => "Poll Updated."}
 		else

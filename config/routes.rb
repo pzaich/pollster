@@ -1,13 +1,10 @@
 Pollster::Application.routes.draw do
 
   resources :polls do
-    resources :questions do
-      resources :responses do
-      end
-    end
+    resources :questions
   end
 
-  root to: 'polls#index'
+  root to: 'polls#new'
   match "/:id" => redirect("/polls/%{id}/edit")
   # The priority is based upon order of creation:
   # first created -> highest priority.
