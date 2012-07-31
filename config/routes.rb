@@ -1,7 +1,10 @@
 Pollster::Application.routes.draw do
 
   resources :polls do
-    resources :questions
+    resources :questions do
+      resources :responses do
+      end
+    end
   end
 
   root to: 'polls#new'

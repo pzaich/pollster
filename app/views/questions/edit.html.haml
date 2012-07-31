@@ -1,2 +1,4 @@
 %h1 Edit: #{@question.title}
 = render :partial => 'form', :locals => {:btn_message => "Edit Question"}
+
+= link_to "Back", edit_poll_path(@poll.edit_slug)

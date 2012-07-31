@@ -33,4 +33,12 @@ class QuestionsController < ApplicationController
 			render :back, :flash => {:error => "Update unsuccessful. Please try again."}
 		end
   end
+
+  def destroy
+    if Question.destroy(params[:id])
+      redirect_to :back, :flash => {:success => "Question delete successfully."}
+    else
+      render :back, :flash => {:warning => "Question failed to delete"}
+    end
+  end
 end
