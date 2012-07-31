@@ -1,13 +1,2 @@
 %h1 New Questions for #{@poll.name}
-=form_for([@poll, @question]) do |f|
-	- if @question.errors.any?
-		%div.alert.alert-error
-			%h2 #{ pluralize(@question.errors.count, "error")} prevented this poll from being saved!
-			%ul
-				- @question.errors.full_messages.each do |msg|
-					%li #{msg}
-	%p
-		=f.label :title, "Question Prompt"
-		=f.text_field :title
-	%p
-		=f.button "Create Question", :class => "btn btn-success"
+= render 'form'

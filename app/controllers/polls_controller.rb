@@ -25,4 +25,13 @@ class PollsController < ApplicationController
 		@questions =  Question.where(:poll_id => @poll)
 	end
 
+	def update
+		@poll = Poll.find_by_slug(params[:id])
+		if @poll.update_attributes(params[:poll])
+			redirect_to :back, :flash => {:success => "Poll Updated."}
+		else
+			render :back, :flash => {:error => "Update unsuccessful. Please try again."}
+		end
+	end
+
 end

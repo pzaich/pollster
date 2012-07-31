@@ -4,7 +4,7 @@ class Poll < ActiveRecord::Base
 
 	friendly_id :name, :use => :slugged
 
-  before_save :generate_edit_slug
+  before_create :generate_edit_slug
 
   validates_uniqueness_of :name, :case_sensitive => true
 
@@ -14,7 +14,7 @@ class Poll < ActiveRecord::Base
 	private
 
 	  def generate_edit_slug (salt = "dkjekdldc")
-	  	self.edit_slug = Digest::MD5.hexdigest(self.name + salt)
+	  	self.edit_slug = Digest::MD5.hexdigest(self.id.to_s + salt)
 	  end
 
 end
