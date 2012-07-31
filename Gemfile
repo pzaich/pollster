@@ -8,14 +8,25 @@ gem "friendly_id", "~> 4.0.0.beta8"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development, :test do
+group :development do
 	gem 'sqlite3'
 	gem 'quiet_assets'
 	gem 'haml-rails'
 	gem 'rspec-rails'
+	gem 'guard'
+	gem 'guard-rspec'
+end
+
+group :test do
+	gem 'sqlite3'
+	gem 'rspec'
 	gem 'simplecov'
 	gem 'fabrication'
 	gem 'faker'
+	gem 'growl'
+	gem 'rb-fsevent'
+	gem 'spork-rails'
+	gem 'guard-spork'
 end
 
 group :production do
