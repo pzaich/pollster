@@ -2,7 +2,12 @@
 
 %ul
 	- @questions.each do |question|
-		%li #{question.title}
+		%li 
+			question.title
+			%ul.answers
+				- question.answers.each do |answer|
+					%li 
+						=answer.value
 
 
 
