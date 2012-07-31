@@ -1,1 +1,7 @@
-%h1 Hello World
+%h1 Find a poll!
+
+%ul.polls
+	- @polls.each do |poll|
+		%li
+			%h3
+				=link_to poll.name, poll_path(poll)
