@@ -1,0 +1,12 @@
+=form_for([@question, @answer]) do |f|
+	- if @answer.errors.any?
+		%div.alert.alert-error
+			%h2 #{ pluralize(@answer.errors.count, "error")} prevented this poll from being saved!
+			%ul
+				- @answer.errors.full_messages.each do |msg|
+					%li #{msg}
+	%p
+		=f.label :value, "New Answer Value"
+		=f.text_field :value
+	%p
+		=f.button "Add Answer", :class => "btn btn-success"

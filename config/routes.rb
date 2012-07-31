@@ -2,9 +2,12 @@ Pollster::Application.routes.draw do
 
   resources :polls do
     resources :questions do
-      resources :answers do
-        resources :responses do
-        end
+    end
+  end
+
+  resources :questions do
+    resources :answers do
+      resources :responses do
       end
     end
   end
