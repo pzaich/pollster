@@ -5,4 +5,9 @@
 
 %ul
 	- @questions.each do |question|
-		%li #{question.title}
+		%li 
+			%span #{question.title}
+			%span 
+				=link_to "Edit", "/polls/#{@poll.id}/questions/#{question.id}/edit", :class => "btn"
+
+/ Should be the correct routing => edit_poll_question(@poll , question)

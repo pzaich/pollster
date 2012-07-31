@@ -1,2 +1,2 @@
 %h1 Edit: #{@question.title}
-= render 'form', :btn_message => "Create Question"
+= render :partial => 'form', :locals => {:btn_message => "Edit Question"}

@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-  	@poll = Poll.find_by_slug(params[:poll_id])
+  	@poll = Poll.find(params[:poll_id])
   	@question = @poll.questions.find_by_poll_id(@poll.id)
   end
 
