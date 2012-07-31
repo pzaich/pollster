@@ -6,7 +6,7 @@ class Poll < ActiveRecord::Base
 
   before_create :generate_edit_slug
 
-  validates_uniqueness_of :name, :case_sensitive => true
+  validates_uniqueness_of :name, :case_sensitive => false
 
   has_many :questions
 

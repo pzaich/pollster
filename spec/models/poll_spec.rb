@@ -7,6 +7,12 @@ describe Poll do
 
 	it { should respond_to(:name) }
 	it { should respond_to(:edit_slug) }
+	it { should respond_to(:questions)}
+
+	it "should return the object using its generated slug" do
+		slug = @poll.slug
+		@poll.should eq (Poll.find(slug))	
+	end
 
 	describe "#generate_edit_slug" do
 		it "should have a unique edit_slug" do
