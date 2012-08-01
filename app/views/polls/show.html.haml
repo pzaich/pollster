@@ -1,16 +1,14 @@
 %h1 #{@poll.name}
 
+=link_to "Start the Quiz!", question_path(@questions.first), :class => "btn btn-success btn-large"
+
+%h2 Questions
 %ol
 	- @questions.each do |question|
 		%li 
-			=question.title
-			- question.answers.each do |answer|
-				=form_for [question, answer, @response] do |f|
-					%p
-						=f.label :answer_id, answer.value
-						=f.radio_button :answer_id, answer.id
+			%h3 #{question.title}
 
-						=f.button "Select", :class => "btn btn-success"
+			
 					
 
 

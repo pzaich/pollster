@@ -1,1 +1,10 @@
 %h1 #{@question.title}
+
+- @question.answers.each do |answer|
+	=form_for [@question, answer, @response] do |f|
+		%p
+			=f.label :answer_id, answer.value
+			=f.radio_button :answer_id, answer.id
+
+			=f.button "Select", :class => "btn btn-success"
+= generate_route_for_question
