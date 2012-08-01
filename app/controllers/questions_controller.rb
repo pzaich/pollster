@@ -22,7 +22,7 @@ class QuestionsController < ApplicationController
 
   def edit
   	@poll = Poll.find(params[:poll_id])
-  	@question = @poll.questions.find_by_poll_id(@poll.id)
+  	@question = @poll.questions.find(params[:id])
   end
 
   def update

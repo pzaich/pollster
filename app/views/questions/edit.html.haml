@@ -1,9 +1,9 @@
 %h1 Edit: #{@question.title}
-= render :partial => 'form', :locals => {:btn_message => "Edit Question"}
-
-= link_to "Back", edit_poll_path(@poll.edit_slug)
+= render :partial => 'form', :locals => {:btn_message => "Update Question"}
 %p
 	=link_to "New Answer Choice", new_question_answer_path(@question), :class => "btn"
 %ul.questions
 	- @question.answers.each do |answer|
 		%li #{answer.value}
+
+= link_to "Back", edit_poll_path(@poll.edit_slug)

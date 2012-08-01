@@ -1,10 +1,8 @@
 %h1 #{@question.title}
+=form_tag(question_responses_path(@question,@response), :method => "post") do
+	-@question.answers.each do |answer|
+		=label_tag :answer_id, answer.value
+		=radio_button_tag :answer_id, answer.id
+	=button_tag "Select", :class => "btn btn-success"
 
-- @question.answers.each do |answer|
-	=form_for [@question, answer, @response] do |f|
-		%p
-			=f.label :answer_id, answer.value
-			=f.radio_button :answer_id, answer.id
-
-			=f.button "Select", :class => "btn btn-success"
-= generate_route_for_question
+=generate_route_for_question

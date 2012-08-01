@@ -1,6 +1,6 @@
 %h1 Edit your Poll: #{@poll.name.upcase!}
 %h3 Your Edit Link: #{root_url}#{@poll.edit_slug}
-
+=link_to "Add Question", new_poll_question_path(@poll), :class => "btn pull-right"
 %h3 Your Share Link: #{root_url}#{@poll.slug}
 
 
