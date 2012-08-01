@@ -6,14 +6,10 @@ Pollster::Application.routes.draw do
   end
 
   resources :questions do
-    resources :answers do
-    end
+    resources :answers 
+    resources :responses
   end
 
-  resources :questions do
-    resources :responses do
-    end
-  end
 
 
   root to: 'polls#index'
