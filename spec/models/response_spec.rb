@@ -7,6 +7,8 @@ describe Response do
 		@response = Response.new(:answer_id => @answer.id, :question_id => question.id)
 	end
 
+	subject { @response }
+
 	it {should respond_to(:answer)}
 	it {should respond_to(:question)}
 

@@ -5,6 +5,8 @@ describe Question do
 		@question = Fabricate(:question)
 	end
 
+	subject { @question }
+
 	it { should respond_to(:title) }
 	it { should respond_to(:poll) }
 	it { should respond_to(:responses) }

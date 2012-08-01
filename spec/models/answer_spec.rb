@@ -7,6 +7,8 @@ describe Answer do
 		@answer.question_id = @question_id
 	end
 
+	subject { @answer }
+
 	it {should respond_to(:value)}
 	it {should respond_to(:responses)}
 	it {should respond_to(:question)}

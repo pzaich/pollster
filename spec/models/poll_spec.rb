@@ -5,6 +5,8 @@ describe Poll do
 		@poll = Fabricate(:poll)
 	end
 
+	subject { @poll }
+
 	it { should respond_to(:name) }
 	it { should respond_to(:edit_slug) }
 	it { should respond_to(:questions)}

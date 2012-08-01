@@ -3,9 +3,14 @@
 %ol
 	- @questions.each do |question|
 		%li 
-			question.title
+			=question.title
 			- question.answers.each do |answer|
-				= render '/responses/form', :locals => {:question => question, :answer => answer}
+				=form_for [question, answer, @response] do |f|
+					%p
+						=f.label :answer_id, answer.value
+						=f.radio_button :answer_id, answer.id
+
+						=f.button "Select", :class => "btn btn-success"
 					
 
 

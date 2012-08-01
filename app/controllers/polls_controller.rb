@@ -19,6 +19,7 @@ class PollsController < ApplicationController
 	def show
 		@poll = Poll.find(params[:id])
 		@questions = Question.where(:poll_id => @poll)
+		@response =Response.new
 	end
 
 	def edit
