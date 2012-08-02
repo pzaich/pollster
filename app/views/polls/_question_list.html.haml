@@ -1,0 +1,8 @@
+%ol
+	- @questions.each do |question|
+		%li 
+			%h3 #{question.title}
+			-if poll_completed?
+				%h4 
+					%span.label.label-info #{response_count(question)} Responses
+				=render 'answer_responses', :question => question

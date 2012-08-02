@@ -10,7 +10,8 @@ class PollsController < ApplicationController
 	def create
 		@poll = Poll.new(params[:poll])
 		if @poll.save
-			redirect_to poll_path(@poll), :flash => {:success => "Poll sucessfully created! Your unique edit link is #{root_url}#{@poll.edit_slug}"}
+			session[:stats] = @poll.name
+			redirect_to edit_poll_path(@poll.edit_slug), :flash => {:success => "Poll sucessfully created! Your unique edit link is #{root_url}#{@poll.edit_slug}"}
 		else
 			render 'new', :notice => "Your Poll could not be completed."
 		end

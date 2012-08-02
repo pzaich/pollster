@@ -1,12 +1,10 @@
 %h1 #{@poll.name}
 
-=link_to "Start the Quiz!", question_path(@questions.first), :class => "btn btn-success btn-large"
+=link_to "Start the Quiz!", question_path(@questions.first), :class => "btn btn-success btn-large" unless poll_completed?
 
 %h2 Questions
-%ol
-	- @questions.each do |question|
-		%li 
-			%h3 #{question.title}
+=render 'question_list'
+
 
 			
 					
