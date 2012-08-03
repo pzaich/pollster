@@ -3,5 +3,5 @@ class Response < ActiveRecord::Base
   belongs_to :answer
   belongs_to :question
 
-  validates_presence_of :answer_id, :question_id
+  validates_presence_of :answer, :question
 end

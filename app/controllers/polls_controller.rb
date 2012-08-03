@@ -19,12 +19,12 @@ class PollsController < ApplicationController
 
 	def show
 		@poll = Poll.find(params[:id])
-		@questions = Question.where(:poll_id => @poll)
+		@questions = @poll.questions
 	end
 
 	def edit
 		@poll = Poll.find_by_edit_slug(params[:id])
-		@questions =  Question.where(:poll_id => @poll)
+		@questions =  @poll.questions.sort("id ASC")
 	end
 
 	def update
