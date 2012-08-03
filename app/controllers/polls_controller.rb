@@ -24,7 +24,7 @@ class PollsController < ApplicationController
 
 	def edit
 		@poll = Poll.find_by_edit_slug(params[:id])
-		@questions =  @poll.questions.sort("id ASC")
+		@questions =  @poll.questions.all.sort
 	end
 
 	def update
