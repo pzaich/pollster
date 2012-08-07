@@ -2,12 +2,12 @@ class QuestionsController < ApplicationController
   def new
   	@poll = Poll.find(params[:poll_id])
   	@question = @poll.questions.new
+
   end
 
   def show
     @question = Question.find(params[:id])
     @next_question = @question.poll.questions.where("id > ?", params[:id]).first
-    # @next_question = @question.poll.questions.next_after(params[:id])
     @response = Response.new
   end
 

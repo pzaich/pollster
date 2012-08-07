@@ -1,0 +1,5 @@
+$('body').append('<%= j(render '/shared/modal', :modal_title => "Create a new Question", :partial => 'questions/form', :partial_vars => {:btn_message => 'Create'}) %>');
+
+
+
+$('#modal').modal('show');

@@ -2,7 +2,7 @@
 %h3 
 	Your Edit Link: 
 	= link_to "#{root_url}#{@poll.edit_slug}", "#{root_path}#{@poll.edit_slug}"
-=link_to "Add Question", new_poll_question_path(@poll), :class => "btn pull-right"
+=link_to "Add Question", new_poll_question_path(@poll), :class => "btn pull-right", :remote => true
 %h3 
 	Your Share Link: 
 	=link_to "#{root_url}polls/#{@poll.slug}", "#{root_path}polls/#{@poll.slug}"
